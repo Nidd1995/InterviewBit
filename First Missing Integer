@@ -1,0 +1,25 @@
+// https://www.interviewbit.com/problems/first-missing-integer/
+
+
+public class Solution {
+    public int firstMissingPositive(ArrayList<Integer> A) {
+        
+        int n = A.size();
+        
+        for(int i=0; i<n ; i++)
+        {
+            while(A.get(i)>=1 && A.get(i)<=n && A.get(i) != A.get(A.get(i)-1))
+            {
+                Collections.swap(A, i, A.get(i)-1);
+            }
+            
+        }
+        
+        for(int j=0; j<n ;j++){
+            if(A.get(j) != j+1)
+            return j+1;
+        }
+        return n+1;
+    }
+}
+
