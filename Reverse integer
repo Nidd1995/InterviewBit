@@ -1,0 +1,28 @@
+// https://www.interviewbit.com/problems/reverse-integer/
+
+public class Solution {
+    public int reverse(int A) {
+        int n= A;
+        
+        
+        long rev=0;
+        int d=0;
+        if(n<0)
+        {
+        n=Math.abs(n);
+        }
+        while(n>0)
+        {
+            d=n%10;
+            rev=rev * 10 +d;
+            n=n/10;
+            
+        }
+       
+        if(rev>Integer.MAX_VALUE || rev< Integer.MIN_VALUE)
+        return 0;
+        if(A<0)
+        return -(int)rev;
+        return (int)rev;
+    }
+}
